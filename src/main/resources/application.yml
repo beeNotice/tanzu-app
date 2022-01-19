@@ -20,7 +20,7 @@ info:
     # Retrieve data from pom.xml
     version: "@project.version@"
     # Sample for deployment variable configuration
-    hello: hello-${spring.profiles.active}
+    hello: hello-${spring.profiles.active}-alpha
 
 management:
   endpoint:
@@ -34,6 +34,7 @@ management:
       exposure:
         include: '*'
 
+# https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
 wavefront:
   application:
     name: tanzu-app
