@@ -20,7 +20,7 @@ info:
     # Retrieve data from pom.xml
     version: "@project.version@"
     # Sample for deployment variable configuration
-    hello: hello-${spring.profiles.active}-alpha
+    hello: hello-${spring.profiles.active}
 
 management:
   endpoint:
