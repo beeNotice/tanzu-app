@@ -3,11 +3,13 @@ accelerator:
   description: Tanzu App Starter
   iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-tanzu-light.png
   tags:
-  - demo
-  - fmartin
+  - java
+  - spring
+  - web
+  - tanzu
   options:
-  - name: optionName
-    label: Nice Label
+  - name: Application name
+    label: Tanzu App - Starter
     display: true
     defaultValue: ""
 engine:
