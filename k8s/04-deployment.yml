@@ -4,10 +4,6 @@ kind: Deployment
 metadata:
   name: tanzu-app
   namespace: tanzu-app
-  annotations:
-    keel.sh/policy: force
-    keel.sh/trigger: poll      
-    keel.sh/pollSchedule: "@every 1m"
 spec:
   replicas: 1
   selector:
@@ -44,29 +40,4 @@ spec:
           # https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables
           env:
           - name: SPRING_PROFILES_ACTIVE
-            value: "prod"
-          - name: SPRING_DATASOURCE_URL
-            valueFrom:
-              configMapKeyRef:
-                name: tanzu-app
-                key: datasource-url
-          - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
-            valueFrom:
-              configMapKeyRef:
-                name: tanzu-app
-                key: wavefront-url
-          - name: SPRING_DATASOURCE_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: tanzu-app
-                key: datasource-username
-          - name: SPRING_DATASOURCE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: tanzu-app
-                key: datasource-password
-          - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_APITOKEN
-            valueFrom:
-              secretKeyRef:
-                name: tanzu-app
-                key: wavefront-api-token
+            value: "local"

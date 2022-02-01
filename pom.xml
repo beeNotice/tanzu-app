@@ -50,19 +50,6 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!-- Observability -->
-		<dependency>
-			<groupId>com.wavefront</groupId>
-			<artifactId>wavefront-spring-boot-starter</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
-			<version>3.0.4</version>
-		</dependency>
-
 		<!-- SGBD -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -110,18 +97,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-		  <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-resources-plugin</artifactId>
-			<configuration>
-			  <nonFilteredFileExtensions>
-				<nonFilteredFileExtension>png</nonFilteredFileExtension>
-				<nonFilteredFileExtension>gig</nonFilteredFileExtension>
-			  </nonFilteredFileExtensions>
-			</configuration>
-		  </plugin>
-			
 		</plugins>
 	</build>
 

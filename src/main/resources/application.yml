@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tanzu-app
+    name: tanzu-app-web-app
   profiles:
     # Last wins : local, prod
     active: local
@@ -34,8 +34,3 @@ management:
       exposure:
         include: '*'
 
-# https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
-wavefront:
-  application:
-    name: tanzu-app
-    service: tanzu-app-vote

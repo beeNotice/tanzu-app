@@ -38,7 +38,7 @@ public class OpenSslInformation implements InfoContributor {
 			}
 
 		} catch (IOException e) {
-			LOG.warn("An error occurred while retrieving Openssl version", e);
+			LOG.warn("An error occurred while retrieving Openssl version - {}", e.getMessage());
 		}
 
 		builder.withDetail("openssl", result.toString());
