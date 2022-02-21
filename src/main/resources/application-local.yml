@@ -18,10 +18,14 @@ logging:
       tanzu:
         app: DEBUG
 
+# Feature flag sample
+tanzu:
+  super-feature:
+    enabled: false
+
 # Wavefront
 management:
   metrics:
     export:
       wavefront:
-        uri: OVERRIDEN
-        apitoken: OVERRIDEN
+        enabled: false

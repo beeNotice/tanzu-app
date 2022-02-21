@@ -32,11 +32,6 @@ management:
     web:
       exposure:
         include: '*'
-  # Wavefront
-  metrics:
-    export:
-      wavefront:
-        enabled: true
 
 # https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
 wavefront:

@@ -38,6 +38,27 @@ spec:
               path: /actuator/health/readiness
             initialDelaySeconds: 10
           # https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables
+          # Alternatives : https://github.com/gwolverson/blogs/tree/main/config-demo
           env:
           - name: SPRING_PROFILES_ACTIVE
             value: "local"
+          - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED
+            valueFrom:
+              configMapKeyRef:
+                name: tanzu-app
+                key: wavefront-enabled
+          - name: TANZU_SUPERFEATURE_ENABLED
+            valueFrom:
+              configMapKeyRef:
+                name: tanzu-app
+                key: super-feature-enabled
+          - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI
+            valueFrom:
+              secretKeyRef:
+                name: tanzu-app
+                key: wavefront-uri
+          - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_APITOKEN
+            valueFrom:
+              secretKeyRef:
+                name: tanzu-app
+                key: wavefront-api-token
