@@ -17,3 +17,11 @@ logging:
     com:
       tanzu:
         app: DEBUG
+
+# Wavefront
+management:
+  metrics:
+    export:
+      wavefront:
+        uri: OVERRIDEN
+        apitoken: OVERRIDEN

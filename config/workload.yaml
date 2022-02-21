@@ -6,6 +6,8 @@ metadata:
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: "true"
     app.kubernetes.io/part-of: tanzu-app
+    tanzu.app.live.view: "true"
+    tanzu.app.live.view.application.name: "tanzu-app"
 spec:
   source:
     git:
