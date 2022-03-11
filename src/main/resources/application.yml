@@ -32,9 +32,13 @@ management:
     web:
       exposure:
         include: '*'
+  metrics:
+    export:
+      wavefront:
+        enabled: false
 
 # https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
 wavefront:
   application:
-    name: tanzu-app-web-app
+    name: tanzu-app-${spring.profiles.active}
     service: tanzu-app-vote

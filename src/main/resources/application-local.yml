@@ -22,10 +22,3 @@ logging:
 tanzu:
   super-feature:
     enabled: false
-
-# Wavefront
-management:
-  metrics:
-    export:
-      wavefront:
-        enabled: false
