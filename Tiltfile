@@ -1,6 +1,6 @@
 SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='harbor.withtanzu.com/fmartin/tanzu-app-tap')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
-NAMESPACE = os.getenv("NAMESPACE", default='default')
+NAMESPACE = os.getenv("NAMESPACE", default='dev')
 
 k8s_custom_deploy(
     'tanzu-app-deploy',
@@ -23,3 +23,4 @@ k8s_resource('tanzu-app-deploy', port_forwards=["8080:8080"],
 
 allow_k8s_contexts('aks-tanzu-tap')
 update_settings (k8s_upsert_timeout_secs = 300)
+

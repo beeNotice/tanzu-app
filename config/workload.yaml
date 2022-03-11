@@ -1,6 +1,7 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
+  namespace: dev
   name: tanzu-app-deploy
   labels:
     apps.tanzu.vmware.com/workload-type: web
@@ -8,6 +9,8 @@ metadata:
     app.kubernetes.io/part-of: tanzu-app
     tanzu.app.live.view: "true"
     tanzu.app.live.view.application.name: "tanzu-app"
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
 spec:
   source:
     git:
