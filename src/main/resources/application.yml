@@ -2,7 +2,7 @@ spring:
   application:
     name: tanzu-app-web-app
   profiles:
-    # Last wins : local, prod
+    # Last wins : local,prod
     active: local
   sql:
     init:
@@ -36,5 +36,5 @@ management:
 # https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
 wavefront:
   application:
-    name: tanzu-app-${spring.profiles.active}
+    name: tanzu-app-web-app
     service: tanzu-app-vote

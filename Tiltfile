@@ -19,8 +19,7 @@ k8s_custom_deploy(
 )
 
 k8s_resource('tanzu-app-deploy', port_forwards=["8080:8080"],
-            extra_pod_selectors=[{'serving.knative.dev/service': 'tanzu-app'}])
+            extra_pod_selectors=[{'serving.knative.dev/service': 'tanzu-app-deploy'}])
 
 allow_k8s_contexts('aks-tanzu-tap')
-update_settings (k8s_upsert_timeout_secs = 300)
-
+update_settings (k8s_upsert_timeout_secs = 5000)

@@ -5,7 +5,7 @@ metadata:
   name: tanzu-app-deploy
   labels:
     apps.tanzu.vmware.com/workload-type: web
-    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/has-tests: "false"
     app.kubernetes.io/part-of: tanzu-app
     tanzu.app.live.view: "true"
     tanzu.app.live.view.application.name: "tanzu-app"
@@ -17,3 +17,12 @@ spec:
       url: https://github.com/beeNotice/tanzu-app
       ref:
         branch: main
+  serviceClaims:
+  - name: db
+    ref:
+      apiVersion: sql.tanzu.vmware.com/v1
+      kind: Postgres
+      name: postgres-sample
+  env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: "local,prod"
