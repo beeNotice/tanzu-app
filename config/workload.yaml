@@ -23,7 +23,7 @@ spec:
     ref:
       apiVersion: sql.tanzu.vmware.com/v1
       kind: Postgres
-      name: postgres-sample
+      name: postgres-tanzu-app
   env:
   - name: SPRING_PROFILES_ACTIVE
     value: "prod"
