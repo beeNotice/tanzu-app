@@ -31,7 +31,7 @@ public class GuiController {
 
 	@GetMapping("/")
 	public String greeting(Model model) {
-		LOG.info("Hello, with feature enabled -> {}", featureEnabled);
+		LOG.info("Hello, with super-feature enabled -> {}", featureEnabled);
 		List<Hello> hellos = helloRepository.findAllEagered();
 		model.addAttribute("hello", hellos.get(counter.getAndIncrement() % hellos.size()));
 		return "hello";
