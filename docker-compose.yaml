@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:14.2
+    environment:
+      - POSTGRES_DB=postgres-tanzu-app
+      - POSTGRES_USER=pgappuser
+      - POSTGRES_PASSWORD=pgappuser
+    ports:
+      - '5432:5432'
+  tanzu-app:
+    image: tanzu-app:0.0.1-SNAPSHOT
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres-tanzu-app
+    depends_on:
+      - postgres

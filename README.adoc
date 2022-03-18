@@ -2,9 +2,20 @@
 
 == Launch
 
+=== Local
+
 [source, sh]
 ----
 # Run app
 docker run -e POSTGRES_USER=pgappuser -e POSTGRES_PASSWORD=pgappuser -e POSTGRES_DB=postgres-tanzu-app -p 5432:5432 postgres:14.2
 ./mvnw spring-boot:run
 ----
+
+=== Local Native
+
+[source, sh]
+----
+./mvnw spring-boot:build-image
+docker-compose up
+----
+

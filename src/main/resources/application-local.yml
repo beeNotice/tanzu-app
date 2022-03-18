@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/postgres-tanzu-app
+    url: jdbc:postgresql://localhost:5432/postgres-tanzu-app
     username: pgappuser
     password: pgappuser
     driverClassName: org.postgresql.Driver
@@ -9,8 +9,9 @@ spring:
     hibernate:
       ddl-auto: none
     spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
-  h2:
-    console.enabled: true
+  sql:
+    init:
+      platform: postgresql
 
 logging:
   level:
