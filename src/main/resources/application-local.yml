@@ -9,9 +9,6 @@ spring:
     hibernate:
       ddl-auto: none
     spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
-  sql:
-    init:
-      platform: postgresql
 
 logging:
   level:
