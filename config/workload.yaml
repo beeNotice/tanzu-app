@@ -24,6 +24,10 @@ spec:
       apiVersion: sql.tanzu.vmware.com/v1
       kind: Postgres
       name: postgres-tanzu-app
+  build:
+    env:
+      - name: BP_NATIVE_IMAGE
+        value: "true"
   env:
   - name: SPRING_PROFILES_ACTIVE
-    value: "prod"
+    value: "local,prod"
