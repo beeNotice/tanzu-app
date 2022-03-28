@@ -9,7 +9,7 @@ class TanzuAppSimulation extends Simulation {
 
   val httpProtocol = http
     //.baseUrl("http://localhost:8080")
-    .baseUrl("http://www.fmartin.tech")
+    .baseUrl("http://tanzu-app-deploy-dev.tanzu.fmartin.tech/")
 
   // A scenario is a chain of requests and pauses
   val scn = scenario("Main scenario")
@@ -21,6 +21,11 @@ class TanzuAppSimulation extends Simulation {
     .exec(
       http("list-all")
         .get("/api/helloes")
+        .check(status.is(200))
+    )
+    .exec(
+      http("prime")
+        .get("/prime/900003883")
         .check(status.is(200))
     )
 

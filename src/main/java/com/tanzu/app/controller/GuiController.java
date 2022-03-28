@@ -16,25 +16,25 @@ import com.tanzu.app.repository.HelloRepository;
 @Controller
 public class GuiController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(GuiController.class);
+  private static final Logger LOG = LoggerFactory.getLogger(GuiController.class);
 
-	@Value("${tanzu.super-feature.enabled}")
-	private boolean featureEnabled;
+  @Value("${tanzu.super-feature.enabled}")
+  private boolean featureEnabled;
 
-	private HelloRepository helloRepository;
+  private HelloRepository helloRepository;
 
-	private final AtomicInteger counter = new AtomicInteger();
+  private final AtomicInteger counter = new AtomicInteger();
 
-	public GuiController(HelloRepository helloRepository) {
-		this.helloRepository = helloRepository;
-	}
+  public GuiController(HelloRepository helloRepository) {
+    this.helloRepository = helloRepository;
+  }
 
-	@GetMapping("/")
-	public String greeting(Model model) {
-		LOG.info("Hello, with super-feature enabled -> {}", featureEnabled);
-		List<Hello> hellos = helloRepository.findAllEagered();
-		model.addAttribute("hello", hellos.get(counter.getAndIncrement() % hellos.size()));
-		return "hello";
-	}
+  @GetMapping("/")
+  public String greeting(Model model) {
+    LOG.info("Hello, with super enabled -> {}", featureEnabled);
+    List<Hello> hellos = helloRepository.findAllEagered();
+    model.addAttribute("hello", hellos.get(counter.getAndIncrement() % hellos.size()));
+    return "hello";
+  }
 
 }
