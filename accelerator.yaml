@@ -1,6 +1,6 @@
 accelerator:
   displayName: Tanzu App
-  description: Tanzu App Starter
+  description: Today's demo!
   iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-tanzu-light.png
   tags:
   - java

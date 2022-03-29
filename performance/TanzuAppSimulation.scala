@@ -30,6 +30,6 @@ class TanzuAppSimulation extends Simulation {
     )
 
   // https://gatling.io/docs/current/general/simulation_setup/  
-  setUp(scn.inject(rampUsers(120).during(60.seconds)).protocols(httpProtocol))
+  setUp(scn.inject(rampUsers(60).during(30.seconds)).protocols(httpProtocol))
 
 }
