@@ -14,7 +14,7 @@ accelerator:
       description: Title text for the application
       inputType: text
       dataType: string
-      defaultValue: "tanzu-app-web-app"
+      defaultValue: "tanzu-app"
     - name: gitUrl
       label: Git Repository URL
       display: true
