@@ -32,7 +32,7 @@ accelerator:
 engine:
   merge:
     - include: [ "**" ]
-      exclude: [ "config/workload.yaml", "accelerator.yaml" ]
+      exclude: [ "config/workload.yaml", "src/main/resources/application.yml", "accelerator.yaml" ]
     - include: [ "config/workload.yaml" ]
       chain:
         - type: ReplaceText
