@@ -8,24 +8,10 @@ accelerator:
   - web
   - tanzu
   options:
-  - name: title
-    label: Title
+  - name: optionName
+    label: Nice Label
     display: true
-    description: Title text for the application
-    inputType: text
-    dataType: string
-    defaultValue: "tanzu-app-wip-4"
-  - name: gitUrl
-    label: Git Repository URL
-    display: true
-    description: Git Repository URL of the application's source code
-    inputType: text
-    dataType: string
-    defaultValue: "https://github.com/beeNotice/tanzu-app"
-  - name: gitBranch
-    label: Git Repository Branch
-    display: true
-    description: Git Repository Branch of the application's source code
-    inputType: text
-    dataType: string
-    defaultValue: "main"
+    defaultValue: ""
+engine:
+  include:
+  - '**'
