@@ -25,11 +25,11 @@ class TanzuAppSimulation extends Simulation {
     )
     .exec(
       http("prime")
-        .get("/prime/900003883")
+        .get("/prime/90015329") //900139151
         .check(status.is(200))
     )
 
   // https://gatling.io/docs/current/general/simulation_setup/  
-  setUp(scn.inject(rampUsers(60).during(30.seconds)).protocols(httpProtocol))
+  setUp(scn.inject(rampUsers(500).during(30.seconds)).protocols(httpProtocol))
 
 }

@@ -7,8 +7,6 @@ metadata:
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: "false"
     app.kubernetes.io/part-of: tanzu-app
-    tanzu.app.live.view: "true"
-    tanzu.app.live.view.application.name: "tanzu-app"
   annotations:
     autoscaling.knative.dev/minScale: "1"
     serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"db":{"namespace":"postgresql"}}}}'

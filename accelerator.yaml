@@ -14,7 +14,36 @@ accelerator:
       description: Title text for the application
       inputType: text
       dataType: string
-      defaultValue: "Tanzu App Starter"
+      defaultValue: "tanzu-app-web-app"
+    - name: gitUrl
+      label: Git Repository URL
+      display: true
+      description: Git Repository URL of the application's source code
+      inputType: text
+      dataType: string
+      defaultValue: "https://github.com/beeNotice/tanzu-app"
+    - name: gitBranch
+      label: Git Repository Branch
+      display: true
+      description: Git Repository Branch of the application's source code
+      inputType: text
+      dataType: string
+      defaultValue: "main"
 engine:
-  include:
-  - '**'
+  merge:
+    - include: [ "**" ]
+      exclude: [ "config/workload.yaml", "accelerator.yaml" ]
+    - include: [ "config/workload.yaml" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: https://github.com/beeNotice/tanzu-app
+              with: "#gitUrl"
+            - text: main
+              with: "#gitBranch"
+    - include: [ "src/main/resources/application.yml" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+             - text: tanzu-app-web-app
+               with: "#title"
