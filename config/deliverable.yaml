@@ -4,13 +4,14 @@ metadata:
   namespace: prod
   name: tanzu-app-deploy
   labels:
-    app.tanzu.vmware.com/deliverable-type: web # <=== must match the selector on a Delivery
+    app.tanzu.vmware.com/deliverable-type: web
 spec:
   params:
   - name: gitops_ssh_secret
     value: git-ssh
   source:
     git:
-      url: ssh://git@github.com/beeNotice/tanzu-java-web-app-deploy.git # <=== the gitops repo
+      url: ssh://git@github.com/beeNotice/tanzu-app-deploy
       ref:
-        branch: main # <=== the gitops branch
+        branch: main
+
