@@ -13,5 +13,5 @@ spec:
     git:
       url: ssh://git@github.com/beeNotice/tanzu-app-deploy
       ref:
-        branch: main
+        branch: native
 
