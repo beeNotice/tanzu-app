@@ -9,7 +9,6 @@ metadata:
     app.kubernetes.io/part-of: tanzu-app
   annotations:
     autoscaling.knative.dev/minScale: "1"
-    serviceclaims.supplychain.apps.x-tanzu.vmware.com/extensions: '{"kind":"ServiceClaimsExtension","apiVersion":"supplychain.apps.x-tanzu.vmware.com/v1alpha1","spec":{"serviceClaims":{"db":{"namespace":"postgresql"}}}}'
 spec:
   source:
     git:
