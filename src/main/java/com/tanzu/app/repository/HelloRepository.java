@@ -9,7 +9,7 @@ import com.tanzu.app.domain.Hello;
 
 public interface HelloRepository extends JpaRepository<Hello, Long> {
 
-	@Query("select h from Hello h inner join fetch h.a inner join fetch h.b")
-	List<Hello> findAllEagered();
+  @Query("select h from Hello h inner join fetch h.a inner join fetch h.b")
+  List<Hello> findAllEagered();
 
 }

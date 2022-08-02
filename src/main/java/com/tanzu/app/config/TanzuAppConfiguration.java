@@ -26,5 +26,4 @@ public class TanzuAppConfiguration {
             .title("Tanzu App - OpenAPI 3.0")
             .description("This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3."));
   }
-
 }

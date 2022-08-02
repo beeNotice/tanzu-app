@@ -4,14 +4,23 @@ spring:
   profiles:
     # Last wins : local,prod
     active: local
-  sql:
-    init:
-      mode: always
+  datasource:
+    url: jdbc:postgresql://localhost/postgres-tanzu-app
+    username: pgappuser
+    password: pgappuser
+    driverClassName: org.postgresql.Driver
   jpa:
     open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
   data:
     rest:
       basePath: /api
+
+server:
+  port : 8090
 
 info:
   app:
@@ -37,8 +46,19 @@ management:
       wavefront:
         enabled: false
 
+logging:
+  level:
+    com:
+      tanzu:
+        app: DEBUG
+
 # https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
 wavefront:
   application:
     name: tanzu-app-${spring.profiles.active}
     service: tanzu-app-vote
+
+# Feature flag sample
+tanzu:
+  super-feature:
+    enabled: true

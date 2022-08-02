@@ -1,10 +1,4 @@
-spring:
-  datasource:
-    driverClassName: org.postgresql.Driver
-  jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
-
 # Feature flag sample
 tanzu:
   super-feature:
-    enabled: true
+    enabled: false
