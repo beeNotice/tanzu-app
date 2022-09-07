@@ -18,6 +18,11 @@ spring:
   data:
     rest:
       basePath: /api
+  cloud:
+    discovery:
+      client:
+        health-indicator:
+          enabled: false
 
 server:
   port : 8090
