@@ -4,7 +4,7 @@ metadata:
   namespace: dev
   name: tanzu-app-deploy
   labels:
-    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type: web 
     apps.tanzu.vmware.com/has-tests: "true"
     app.kubernetes.io/part-of: tanzu-app
   annotations:
