@@ -40,7 +40,7 @@ public class GuiController {
     LOG.info("Hello, with super enabled -> {}", featureEnabled);
     List<Hello> hellos = helloRepository.findAllEagered();
     model.addAttribute("hello", hellos.get(counter.getAndIncrement() % hellos.size()));
-    model.addAttribute("color", configRepository.getById("COLOR").getVal());
+    model.addAttribute("color", configRepository.getReferenceById("COLOR").getVal());
     return "hello";
   }
 

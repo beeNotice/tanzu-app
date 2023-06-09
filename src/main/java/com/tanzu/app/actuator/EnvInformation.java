@@ -19,7 +19,7 @@ public class EnvInformation implements InfoContributor {
   @Override
   @Transactional(readOnly = true)
   public void contribute(Builder builder) {
-    builder.withDetail("environment", configRepository.getById("ENV").getVal());
+    builder.withDetail("environment", configRepository.getReferenceById("ENV").getVal());
   }
 
 }

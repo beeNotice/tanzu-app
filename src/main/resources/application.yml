@@ -1,6 +1,6 @@
 spring:
   application:
-    name: tanzu-app-web-app
+    name: tanzu-app
   profiles:
     # Last wins : local,prod
     active: local
@@ -12,14 +12,6 @@ spring:
   data:
     rest:
       basePath: /api
-  cloud:
-    discovery:
-      client:
-        health-indicator:
-          enabled: false
-
-server:
-  port : 8090
 
 info:
   app:
@@ -28,36 +20,20 @@ info:
     # Retrieve data from pom.xml
     version: "@project.version@"
     # Sample for deployment variable configuration
-    hello: hello-${spring.profiles.active}
+    profile: ${spring.profiles.active}
 
 management:
   endpoint:
     health:
       show-details: always
-    shutdown:
-      enabled: true
   endpoints:
     web:
       exposure:
         include: '*'
-  metrics:
-    export:
-      wavefront:
-        enabled: false
+  info:
+    env:
+      enabled: true
 
-logging:
-  level:
-    com:
-      tanzu:
-        app: DEBUG
-
-# https://tanzu.vmware.com/developer/guides/spring-wavefront-gs/
-wavefront:
-  application:
-    name: tanzu-app-${spring.profiles.active}
-    service: tanzu-app-vote
-
-# Feature flag sample
 tanzu:
   super-feature:
     enabled: true

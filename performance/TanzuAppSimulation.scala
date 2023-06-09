@@ -8,7 +8,7 @@ import io.gatling.http.Predef._
 class TanzuAppSimulation extends Simulation {
 
   val httpProtocol = http
-    .baseUrl("http://tanzu-app-deploy-prod.tanzu.fmartin.tech/")
+    .baseUrl("http://tanzu-app-deploy.prod.tanzu.fmartin.tech/")
 
   // A scenario is a chain of requests and pauses
   val scn = scenario("Main scenario")
@@ -24,7 +24,7 @@ class TanzuAppSimulation extends Simulation {
     )
     .exec(
       http("prime")
-        .get("/prime/900139151") //90015329
+        .get("/prime/900336091") //90015329
         .check(status.is(200))
     )
 

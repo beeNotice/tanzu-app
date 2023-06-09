@@ -4,23 +4,37 @@ metadata:
   namespace: dev
   name: tanzu-app-deploy
   labels:
-    apps.tanzu.vmware.com/workload-type: web 
+    apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: "true"
     app.kubernetes.io/part-of: tanzu-app
+    apis.apps.tanzu.vmware.com/register-api: "true"
   annotations:
     autoscaling.knative.dev/minScale: "1"
 spec:
   source:
     git:
-      url: https://github.com/beeNotice/tanzu-app
+      url: ssh://git@github.com/beeNotice/tanzu-app
       ref:
         branch: main
-  serviceClaims:
-  - name: db
-    ref:
-      apiVersion: sql.tanzu.vmware.com/v1
-      kind: Postgres
-      name: postgres-tanzu-app
+  build:
+    env:
+      - name: BP_JVM_VERSION
+        value: "17.*"
   env:
-  - name: SPRING_PROFILES_ACTIVE
-    value: "prod"
+    - name: SPRING_PROFILES_ACTIVE
+      value: "prod"
+  serviceClaims:
+    - name: db
+      ref:
+        apiVersion: sql.tanzu.vmware.com/v1
+        kind: Postgres
+        name: postgres-tanzu-app
+  params:
+    - name: api_descriptor
+      value:
+        type: openapi
+        location:
+          path: "/v3/api-docs"
+        system: default/tanzu-app-system
+        owner: default/default-team
+        description: "The Tanzu Simple API"
