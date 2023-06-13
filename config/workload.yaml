@@ -26,9 +26,9 @@ spec:
   serviceClaims:
     - name: db
       ref:
-        apiVersion: sql.tanzu.vmware.com/v1
-        kind: Postgres
-        name: postgres-tanzu-app
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+        kind: ClassClaim
+        name: postgresql-claim
   params:
     - name: api_descriptor
       value:

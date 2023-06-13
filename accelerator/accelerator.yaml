@@ -14,7 +14,7 @@ accelerator:
     description: Title text for the application
     inputType: text
     dataType: string
-    defaultValue: "tanzu-app-wip-3"
+    defaultValue: "tanzu-app"
   - name: gitUrl
     label: Git Repository URL
     display: true
@@ -45,5 +45,5 @@ engine:
       chain:
       - type: ReplaceText
         substitutions:
-        - text: tanzu-app-web-app
+        - text: tanzu-app
           with: "#title"
