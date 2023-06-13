@@ -8,42 +8,37 @@ accelerator:
   - web
   - tanzu
   options:
-  - name: title
-    label: Title
-    display: true
-    description: Title text for the application
-    inputType: text
-    dataType: string
-    defaultValue: "tanzu-app"
-  - name: gitUrl
-    label: Git Repository URL
-    display: true
-    description: Git Repository URL of the application's source code
-    inputType: text
-    dataType: string
-    defaultValue: "https://github.com/beeNotice/tanzu-app"
-  - name: gitBranch
-    label: Git Repository Branch
-    display: true
-    description: Git Repository Branch of the application's source code
-    inputType: text
-    dataType: string
-    defaultValue: "main"
+    - name: artifactId
+      inputType: text
+      defaultValue: "tanzu-app"
+      label: Module artifact name
+      required: true
+    - name: groupId
+      inputType: text
+      defaultValue: "com.tanzu"
+      label: Module group name
+      required: true
+
 engine:
-  merge:
-  - include: [ "**" ]
-    exclude: [ "config/workload.yaml", "src/main/resources/application.yml", "accelerator.yaml" ]
-  - include: [ "config/workload.yaml" ]
-    chain:
-    - type: ReplaceText
-      substitutions:
-      - text: https://github.com/beeNotice/tanzu-app
-        with: "#gitUrl"
-      - text: main
-        with: "#gitBranch"
-    - include: [ "src/main/resources/application.yml" ]
-      chain:
-      - type: ReplaceText
-        substitutions:
-        - text: tanzu-app
-          with: "#title"
+  let:
+    - name: packageDirectory
+      expression: '#packageName.replace(".", "/")'
+    - name: workloadResourceName
+      expression: '#artifactId.toLowerCase()'
+    - name: databaseResourceName
+      expression: '#databaseName.toLowerCase()'
+  chain:
+    - merge:
+        - include: [ "**" ]
+          exclude: [ "pom.xml", "README.md" ]
+        - include: [ "pom.xml" ]
+          chain:
+            - type: ReplaceText
+              substitutions:
+                - text: "<groupId>com.tanzu</groupId>"
+                  with: "'<groupId>' + #groupId + '</groupId>'"
+            - type: ReplaceText
+              substitutions:
+                - text: "<artifactId>tanzu-app</artifactId>"
+                  with: "'<groupId>' + #groupId + '</groupId>'"
+    - type: Provenance
