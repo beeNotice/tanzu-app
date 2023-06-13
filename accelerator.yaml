@@ -20,17 +20,10 @@ accelerator:
       required: true
 
 engine:
-  let:
-    - name: packageDirectory
-      expression: '#packageName.replace(".", "/")'
-    - name: workloadResourceName
-      expression: '#artifactId.toLowerCase()'
-    - name: databaseResourceName
-      expression: '#databaseName.toLowerCase()'
   chain:
     - merge:
         - include: [ "**" ]
-          exclude: [ "pom.xml", "README.md" ]
+          exclude: [ "pom.xml" ]
         - include: [ "pom.xml" ]
           chain:
             - type: ReplaceText
@@ -40,5 +33,5 @@ engine:
             - type: ReplaceText
               substitutions:
                 - text: "<artifactId>tanzu-app</artifactId>"
-                  with: "'<groupId>' + #groupId + '</groupId>'"
+                  with: "'<artifactId>' + #artifactId + '</artifactId>'"
     - type: Provenance
