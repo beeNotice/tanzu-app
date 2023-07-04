@@ -16,19 +16,24 @@ spec:
       url: ssh://git@github.com/beeNotice/tanzu-app
       ref:
         branch: main
-  build:
-    env:
-      - name: BP_JVM_VERSION
-        value: "17.*"
-  env:
-    - name: SPRING_PROFILES_ACTIVE
-      value: "prod"
   serviceClaims:
+    - name: config
+      ref:
+        apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+        kind: ResourceClaim
+        name: sample-configuration-claim
     - name: db
       ref:
         apiVersion: services.apps.tanzu.vmware.com/v1alpha1
         kind: ClassClaim
         name: postgresql-claim
+  env:
+    - name: SPRING_PROFILES_ACTIVE
+      value: "prod"
+  build:
+    env:
+      - name: BP_JVM_VERSION
+        value: "17.*"
   params:
     - name: api_descriptor
       value:

@@ -36,4 +36,4 @@ management:
 
 tanzu:
   super-feature:
-    enabled: true
+    enabled: false

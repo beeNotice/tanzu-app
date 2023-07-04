@@ -1,0 +1,1 @@
+org.springframework.cloud.bindings.boot.BindingsPropertiesProcessor=com.tanzu.app.config.ServiceBindingsPropertiesProcessor
